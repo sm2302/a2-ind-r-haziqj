@@ -36,7 +36,8 @@
 
 10. Return correct quantile values
    
-   - Points awarded if attempt is valid but value incorrect
+    - Points awarded if attempt is valid but value incorrect
+
 
 
 ### Code styling
