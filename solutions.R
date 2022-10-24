@@ -39,9 +39,9 @@ pareto_dev <- function(alpha, beta, x) {
 # directly.
 
 # Q3 ---------------------------------------------------------------------------
-# Generate some Pareto random variables
-set.seed(123)
-X <- rpareto(100, location = 8, shape = 3) 
+# Read in the data set
+X <- scan("haziqj.txt")  # other functions like read.table() are fine
+                         # as long as it's vectorised
 
 # Compute the MLE
 beta_hat <- min(X)
