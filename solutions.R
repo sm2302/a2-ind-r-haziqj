@@ -43,6 +43,7 @@ pareto_dev <- function(alpha, beta, x) {
 set.seed(123)
 X <- rpareto(100, location = 8, shape = 3) 
 
+# Compute the MLE
 beta_hat <- min(X)
 res <- optim(5, pareto_dev, method = "L-BFGS-B", lower = 0 + 1e-5, x = X, 
              beta = beta_hat)
@@ -51,9 +52,28 @@ alpha_hat <- res$par
 # Alternatively, can code the alpha_hat directly based on the formulae from
 # Wikipedia or differentiation by hand.
 
+# Q4 ---------------------------------------------------------------------------
+pareto_cdf <- function(x, alpha, beta) {
+  # First test for invalid parameter values
+  if (alpha <= 0 | beta <= 0)
+    stop("Parameters alpha and beta must be > 0.")
 
+  # Return the cdf
+  res <- 1 - (beta / x) ^ alpha
+  res[x < beta] <- 0  # F(x) >= 0
+  return(res)
+}
 
+# If using integrate(), one can do the following:
+# pareto_cdf <- function(x, alpha, beta) {
+#   res <- integrate(pareto_pdf, lower = -Inf, upper = x, alpha = alpha, 
+#                    beta = beta)
+#   return(res$value)
+# }
 
+# Since the cdf is available in closed form (either from Wikipedia or
+# integration by hand), best to code that directly rather than use a numerical
+# integrator.
 
 
 
