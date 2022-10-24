@@ -39,12 +39,29 @@
     - Points awarded if attempt is valid but value incorrect
 
 
-
 ### Code styling
 
 | 0-1                                                              | 2-3                                     | 4-5                                |
 |------------------------------------------------------------------|-----------------------------------------|------------------------------------|
 | Messy code and hard to read;  no spaces/tabs;  no section breaks | Some attempts at making script readable | Adherence to tidyverse style guide |
+
+### Creativity
+
+| 0-1                                     | 2-3                             | 4-5                                                              |
+|-----------------------------------------|---------------------------------|------------------------------------------------------------------|
+| Uninspired code copied from some source | Standard and practical solution | Elegant and unique solution; Noteworthy presentation in R script |
+
+### Use of GitHub
+
+| 0-1                        | 2-3                                   | 4-5                                                                     |
+|----------------------------|---------------------------------------|-------------------------------------------------------------------------|
+| Single or few commits only | Regular commits; Lazy commit messages | Commits are regular; Messages are informative; GitHub features are used |
+
+### Following instructions
+
+| 0-1                                                           | 2-3                               | 4-5                                                          |
+|---------------------------------------------------------------|-----------------------------------|--------------------------------------------------------------|
+| Code unable to be run without errors; Ignoring variable names | Code runs; Variable names ignored | Entire code runs without errors; Variable names are followed |
 
 ## Common mistakes
 
