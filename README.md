@@ -1,18 +1,47 @@
-# Instructions
+# Sample solution for Individual R Assignment
 
-- Read carefully the assignment instructions contained within `r-ind-2022s1.pdf`. 
+- SM-2302 Software for Mathematicians
+- Semester I 2022/23 (August 2022)
 
-- Create a single .R file (name this `solution.R`) containing your solutions to Questions 1--5. **Only the code contained within this file will be assessed**.
+## Rubric
 
-- It is important that you name your functions and variables **as instructed**, as your solutions will be auto-graded using R.
+### Code correctness (10 points)
 
-- The code in your script file should be able to be run without any errors.
+1. `pareto_pdf` must return correct values (checked against `EnvStats::dpareto`)
 
-- Please note that not only will you be graded on the correctness of your code but also on creativity, code styling, the proper use of GitHub, as well as following instructions. Therefore, ensure that you
+2. `pareto_pdf` must return 0 for values of `x < beta`
 
-   - Style your code correctly--Refer to the Tidyverse Style Guide at https://style.tidyverse.org/;
-   - Use comments where appropriate;
-   - Cite your sources (failure to do so will result in penalties for plagiarism).
-   
-- If you wish, you may provide a README.md file summarising your work on GitHub / GitHub Pages. Be aware that while your repositories remain private, any information on GitHub Pages will always be publicly available.
+3. `pareto_pdf` must return error for `alpha < 0` and `beta < 0`
 
+4. `pareto_dev` value must return correct values (checked against `EnvStats::dpareto` taken on the log scale)
+
+5. Same as 4, but this checks for vectorisation of `x` (important!)
+
+6. `X` should be loaded using the right data set as a vector
+
+   - -0.5 points when `X` is not a vector
+   - -1 point if no attempt to load `X` is seen in code
+
+7. `alpha_hat` is present and value is correct
+
+   - Points awarded if attempt is valid but value incorrect (e.g. Fail tests because `X` incorrectly loaded)
+
+8. `beta_hat` is present and value is correct 
+
+   - Points awarded if attempt is valid but value incorrect (e.g. Fail tests because `X` incorrectly loaded)
+
+9. `pareto_cdf` value must return correct values (checked against `EnvStats::ppareto`)
+
+   - -0.5 points if cdf is less than zero (i.e. did not zero out values `x < beta`)
+
+10. Return correct quantile values
+
+   - Points awarded if attempt is valid but value incorrect
+
+### Code styling
+
+
+
+## Common mistakes
+
+1. `pareto_pdf` and `pareto_cdf` are not vectorised in `x`.
