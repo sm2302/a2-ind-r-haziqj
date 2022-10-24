@@ -37,3 +37,33 @@ pareto_dev <- function(alpha, beta, x) {
 # Note: It's fine to do sum(-2 * log(pareto_pdf)), but it breaks down easily
 # because the pdf explodes with large values of alpha. Better to use log scale
 # directly.
+
+# Q3 ---------------------------------------------------------------------------
+# Generate some Pareto random variables
+set.seed(123)
+X <- rpareto(100, location = 8, shape = 3) 
+
+beta_hat <- min(X)
+res <- optim(5, pareto_dev, method = "L-BFGS-B", lower = 0 + 1e-5, x = X, 
+             beta = beta_hat)
+alpha_hat <- res$par
+
+# Alternatively, can code the alpha_hat directly based on the formulae from
+# Wikipedia or differentiation by hand.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
