@@ -75,9 +75,19 @@ pareto_cdf <- function(x, alpha, beta) {
 # integration by hand), best to code that directly rather than use a numerical
 # integrator.
 
+# Q5 ---------------------------------------------------------------------------
+B <- 1000
+xvals <- seq(min(X), max(X), length = B)
+cdf_vals <- rep(NA, B) 
+for (i in seq_along(xvals)) {
+  cdf_vals[i] <- pareto_cdf(xvals[i], alpha = alpha_hat, beta = beta_hat)
+}
 
-
-
+qvals <- rep(NA, 5)
+quantiles <- c(0.05, 0.25, 0.5, 0.75, 0.95)
+for (j in seq_along(quantiles)) {
+  qvals[j] <- xvals[which.min(abs(cdf_vals - quantiles[j]))]
+}
 
 
 
