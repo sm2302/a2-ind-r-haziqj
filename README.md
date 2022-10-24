@@ -9,6 +9,8 @@
 
 1. `pareto_pdf` must return correct values (checked against `EnvStats::dpareto`)
 
+   - Points awarded if attempt is valid but value incorrect (e.g. return character vector instead)
+
 2. `pareto_pdf` must return 0 for values of `x < beta`
 
 3. `pareto_pdf` must return error for `alpha < 0` and `beta < 0`
