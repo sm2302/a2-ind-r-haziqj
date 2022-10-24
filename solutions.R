@@ -25,8 +25,8 @@ pareto_dev <- function(alpha, beta, x) {
   
   # Return the log-likelihood
   res <- -2 * log(alpha) - 2 * alpha * log(beta) + 
-    2 * (alpha + 1) * log(x[x > beta])  # only interested in values for which
-                                        # x > beta
+    2 * (alpha + 1) * log(x[x >= beta])  # only interested in values for which
+                                         # x >= beta
   sum(res)
 }
 
@@ -45,7 +45,7 @@ X <- scan("haziqj.txt")  # other functions like read.table() are fine
 
 # Compute the MLE
 beta_hat <- min(X)
-res <- optim(5, pareto_dev, method = "L-BFGS-B", lower = 0 + 1e-5, x = X, 
+res <- optim(5, pareto_dev, method = "L-BFGS-B", lower = 0, x = X, 
              beta = beta_hat)
 alpha_hat <- res$par
 
