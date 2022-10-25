@@ -3,6 +3,35 @@
 - SM-2302 Software for Mathematicians
 - Semester I 2022/23 (August 2022)
 
+## Common mistakes
+
+1. `pareto_pdf` and `pareto_cdf` are not vectorised in `x`. No marks were deducted, but it would have been easier for plotting purposes (say) if you were able to input a vector `x` and return pdf/cdf vector values.
+
+2. A number still struggled with assigning functions. In R, the syntax is 
+
+   ```r
+   my_fun <- function(x, y, z) {
+      # The code to do onto x y z and save in result
+      return(result)
+   }
+   ```
+
+   Instead, the following was all too common: `my_fun(x, y, z) <- { ... }`
+
+3. When checking for argument validity, it's best to `stop()` the function right at the beginning, as soon as the invalid values are detected. Note that `if` is **not** vectorised. Meaning that if you have `if(x < beta)` or something of the sort, then it's likely going to fail.
+
+   - By the way, valid parameter values are `alpha > 0` and `beta > 0`; not $\geq$!
+
+   - Also, instead of an `if` statement, why not just set the output value based on subsetting? See the solution R script.
+
+4. Loading data sets can be done in a variety of ways: `read.csv`, `read.table`, `scan`, etc. When this is run, the data txt file should be in the repo, but it was missing for some.
+
+5. The cdf was defined as $F:\mathbb R \to [0,1]$, so it is not possible for the cdf to return values less than zero (or greater than 1 for that matter). 
+
+6. Question 5 saw the fewest correct answers. The idea is to "reverse" the cdf to obtain $q_1,\dots,q_5$, since $F(q_3)=0.5$ for instance, we are looking for the `x` value which results in `pareto_cdf(x) = 0.5`. The instructions was to use loops, because if we can create a vector of values `seq(xmin, xmax, length.out = B)` where `B <- 1000` for example, **one of these `x` values is bound to be quite close to 0.5**. Thus it is a matter of subsetting which `x` value it is. See the solution for more details.
+
+7. Avoid assigning `F <- ...` because `F` is meant to be for `FALSE`.
+
 ## Rubric
 
 ### Code correctness (10 points)
@@ -68,6 +97,4 @@
 |---------------------------------------------------------------|-----------------------------------|--------------------------------------------------------------|
 | Code unable to be run without errors; Ignoring variable names | Code runs; Variable names ignored | Entire code runs without errors; Variable names are followed |
 
-## Common mistakes
 
-1. `pareto_pdf` and `pareto_cdf` are not vectorised in `x`.
