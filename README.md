@@ -17,11 +17,14 @@
 
 4. `pareto_dev` value must return correct values (checked against `EnvStats::dpareto` taken on the log scale)
 
+   - Points awarded if attempt is valid but value incorrect (e.g. return character vector instead)
+
 5. Same as 4, but this checks for vectorisation of `x` (important!)
 
 6. `X` should be loaded using the right data set as a vector
 
    - -0.5 points when `X` is not a vector
+   - -0.5 points if data file not in repo
    - -1 point if no attempt to load `X` is seen in code
 
 7. `alpha_hat` is present and value is correct
